@@ -26,4 +26,6 @@ Replacement bearing
 - https://www.amazon.com/dp/B09J8BN3PF?ref=ppx_yo2ov_dt_b_product_details&th=1
 - Not necessary but this is an upgrade to the steel bearing in your robot for supporting the drive motor shaft. Coated, nylon, and ceramic made, A huge step up from the factory bearing that rusts out.
 
+Crummy video showing my ugly build, rebuilt drive motor gear reduction box and the robot working in the pool!
+- https://www.youtube.com/watch?v=KBQ-W7AHP2Y
 
