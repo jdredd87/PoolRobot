@@ -1,7 +1,7 @@
 // PoolRobot 2022
 // Steven Chesser
 // Steven.Chesser@twc.com
-// v1.2
+// v1.3
 
 const int jetPIN = 16;    // Relay trigger to relay for JET motor ground wire.
 
@@ -14,7 +14,7 @@ const int drvDirPIN = 18; // Relay trigger to OONO Forward and Reverse Relay Mod
 
 const int testDrive = 3000; // Move 3 seconds
 
-const unsigned long driveTime = 60000; // 60 seconds to drive in either direction.
+const unsigned int driveTime = 60000; // 60 seconds to drive in either direction.
                                        // This could be increased or decreased for your pool size to optimize it.
                                
 const int dropTime = 15000; // 15 seconds to drop to bottom of pool.
@@ -28,7 +28,6 @@ const int stopTime = 3000; // 3 seconds to move after a STOP.
                            
 const int startupDelay = 15000; // 15 second delay on startup to allow drop into water to sink to bottom.
                                 // If your bot likes to float for A while before fully sinking, increase this.
-
 
 // Turn on JET to push robot down and/or against wall
 void jetON() {
@@ -48,16 +47,21 @@ void jetOFF() {
   digitalWrite(LED_BUILTIN, LOW);  
 }
 
-void driveDirection(int moveTime, int dir) {
+void driveDirection(unsigned int moveTime, int relayDir) {
+  Serial.println("driveDirection Start");
   digitalWrite(LED_BUILTIN, HIGH);   
   digitalWrite(drvPwrPIN, LOW); // TURN MOTOR OFF
   delay(1000);
-  digitalWrite(drvDirPIN, dir); // Trigger relay to move in forward or reverse
+  digitalWrite(drvDirPIN, relayDir); // Trigger relay to move in forward or reverse
   delay(1000);
   digitalWrite(drvPwrPIN, HIGH); // TURN MOTOR ON
+  Serial.print("Waiting ");
+  Serial.print(moveTime);
+  Serial.println(" milliseconds...");
   delay(moveTime); 
   digitalWrite(drvPwrPIN, LOW); // TURN MOTOR OFF
   digitalWrite(LED_BUILTIN, LOW);    
+  Serial.println("driveDirection Stop");  
 }
 
 // Simple test of JET and Drive Motor
@@ -68,7 +72,9 @@ void driveDirection(int moveTime, int dir) {
 bool testRun() {
   Serial.println("testRun Started");
   Serial.println("");
-  Serial.println("Waiting 10 seconds....");
+  Serial.print("Waiting ");
+  Serial.print(startupDelay);
+  Serial.println(" milliseconds...");
   Serial.println("");
   delay(startupDelay); 
   jetON();
@@ -83,7 +89,6 @@ bool testRun() {
 // Stage up Microcontroller and relays
 void setup() {
   Serial.begin(9600);
-  Serial.println("Starting pool robot");
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(jetPIN, OUTPUT);
   pinMode(drvPwrPIN, OUTPUT);
@@ -91,6 +96,13 @@ void setup() {
   digitalWrite (jetPIN, LOW); // OFF
   digitalWrite (drvPwrPIN, LOW); // OFF
   digitalWrite (drvDirPIN, LOW); // OFF
+
+  while (!Serial) delay(1);
+
+  Serial.println("");
+  Serial.println("Starting pool robot");
+  Serial.println("");  
+    
   testRun(); 
 }
 
