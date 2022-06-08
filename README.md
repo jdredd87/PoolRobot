@@ -7,9 +7,17 @@ Fix your Paxcess / AIPER HJ2052 pool robot if the internal logic board the bot d
 
 This seems to happen when the one of the motors ( usually drive motor ) siezes up and board burns out.
 
-DFROBOT Beetle and Pi PICO tested 
+Arduino UNO , DFROBOT Beetle and Pi PICO tested 
+
+*DFROBOT Beetle*
 - https://www.amazon.com/dp/B01B0IQFU4?psc=1&ref=ppx_yo2ov_dt_b_product_details
-- Recommend the Beetle as it is bare minimum for this and easier to mount.
+- Recommend the Beetle for bare minimum. Has just enough pins to run this robot.
+- Extremely small foot print.
+
+*Pi PICO*
+- https://www.amazon.com/Raspberry-Pi-Pico-RP2040-microcontroller/dp/B092S2KCV2?th=1
+- Recommended if you want to add any kind of BLE / WiFi or anything else fancy that requires more pins and grunt.
+- Small foot print.
 
 Forward and Reverse Relay Module for Motor/Linear Actuator, Reversing Relay Module (DC 24V)
 - https://www.amazon.com/dp/B0879JDWP4?ref=ppx_yo2ov_dt_b_product_details&th=1
