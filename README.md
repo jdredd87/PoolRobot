@@ -25,7 +25,7 @@ Arduino UNO , DFROBOT Beetle and Pi PICO tested
 - Recommend clipping off the mounting points on each side to make extra room inside.
 - DC 24v is needed for the Paxcess / AIPER HJ2052 model. If you use this for anything else, make sure right voltage!
 
-*1 Channel Relay Module*
+*3x of 1 Channel Relay Module*
 - https://www.amazon.com/dp/B079FJSYGY?ref=ppx_yo2ov_dt_b_product_details&th=1
 - Pretty much any kind similar to this will work. 
 - If can find smaller verions the better to help with the tight working space.
